@@ -30,7 +30,7 @@
 void __attribute__ ((noinline)) pulp_nn_conv_Ho_parallel(
                                                          const uint8_t * pInBuffer,
                                                          uint8_t *       pIm2ColBuffer,
-                                                         const int8_t *  bias,
+                                                         const pulp_nn_bias_t * bias,
                                                          uint8_t *       pOutBuffer,
                                                          const int8_t *  pWeight,
                                                          int32_t *       k,

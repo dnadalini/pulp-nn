@@ -18,6 +18,8 @@
  * limitations under the License.
  */
 
+#include "pulp_nn_bias.h"
+
 void __attribute__ ((noinline))  pulp_nn_add (
   uint8_t * Im_in_1,             // pointer to the input feature map1
   uint8_t * Im_in_2,             // pointer to the input feature map2
@@ -56,7 +58,7 @@ void pulp_nn_avgpool (
 void pulp_nn_conv_Ho_parallel(
   const uint8_t * pInBuffer,
   uint8_t *       pIm2ColBuffer,
-  const int8_t *  bias,
+  const pulp_nn_bias_t * bias,
   uint8_t *       pOutBuffer,
   const int8_t *  pWeight,
   int32_t *       k,
@@ -254,7 +256,7 @@ uint8_t * pulp_nn_matmul(
   uint16_t        out_mult,
   int32_t *       k,
   int32_t *       lambda,
-  const int8_t *  bias,
+  const pulp_nn_bias_t * bias,
   uint8_t *       pOut,
   uint8_t *       pOut2,
   int             flag_relu,

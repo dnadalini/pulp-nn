@@ -20,6 +20,7 @@
 
 #include "pmsis.h"
 #include "pulp_nn_utils.h"
+#include "pulp_nn_bias.h"
 
 #define SumDotp(a, b, c)    __builtin_pulp_sdotusp4(a, b, c)
 #define clip8(x)            __builtin_pulp_clipu_r(x, 255)
@@ -33,7 +34,7 @@ uint8_t __attribute__ ((noinline)) *pulp_nn_matmul(
   uint16_t       out_mult,
   int32_t *      k,
   int32_t *      lambda,
-  const int8_t * bias,
+  const pulp_nn_bias_t * bias,
   uint8_t *      pOut,
   uint8_t *      pOut2,
   int            flag_relu,
